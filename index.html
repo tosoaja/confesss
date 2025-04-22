@@ -2,34 +2,113 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Contoh Tombol dengan CSS</title>
+  <title>Halaman dengan Tombol & Love</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
+      font-family: 'Arial', sans-serif;
       text-align: center;
       margin-top: 100px;
+      overflow: hidden;
+      height: 100vh;
+      /* Pilih salah satu background yang Anda suka */
+      background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 100%); /* Gradien pink lembut */
+      /* background: url('https://i.pinimg.com/originals/8f/ba/cb/8fbacbd5c876e6a5e77a6a756b7a6e0b.jpg') no-repeat center center fixed; */
+      /* background: url('https://wallpapercave.com/wp/wp2752744.jpg') no-repeat center center fixed; */
+      background-size: cover;
+      color: #333;
+    }
+
+    .container {
+      background-color: rgba(255, 255, 255, 0.8);
+      padding: 30px;
+      border-radius: 15px;
+      display: inline-block;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
     }
 
     .tombol-redirect {
-      background-color: #4CAF50;
+      background-color: #ff6b8b;
       color: white;
       padding: 14px 28px;
       font-size: 16px;
       border: none;
       border-radius: 8px;
       cursor: pointer;
-      transition: background-color 0.3s ease;
+      transition: all 0.3s ease;
+      margin-top: 20px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     }
 
     .tombol-redirect:hover {
-      background-color: #45a049;
+      background-color: #ff4757;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    }
+
+    h1 {
+      color: #ff4757;
+      margin-bottom: 20px;
+      font-size: 2.5em;
+      text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+    }
+
+    .heart {
+      position: absolute;
+      color: #ff4757;
+      font-size: 24px;
+      animation: floatUp 2s ease-out forwards;
+      pointer-events: none;
+      z-index: -1;
+    }
+
+    @keyframes floatUp {
+      0% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+      100% {
+        opacity: 0;
+        transform: translateY(-150px) scale(1.5);
+      }
     }
   </style>
 </head>
 <body>
-  <h1>Halaman Utama</h1>
+
+<div class="container">
+  <h1>Hai kamu ❤️</h1>
   <button class="tombol-redirect" onclick="location.href='halaman-lain.html'">
-    Ke Halaman Lain
+    Pencet aku cantik ❤️
   </button>
+</div>
+
+<script>
+  // Fungsi untuk membuat elemen love
+  function createHeart() {
+    const heart = document.createElement('div');
+    heart.classList.add('heart');
+    heart.textContent = '❤️';
+    heart.style.left = Math.random() * window.innerWidth + 'px';
+    heart.style.top = (window.innerHeight - 100) + 'px'; // Muncul dari bagian bawah
+    heart.style.fontSize = (Math.random() * 20 + 15) + 'px'; // Ukuran random
+    document.body.appendChild(heart);
+
+    // Hapus setelah animasi selesai
+    setTimeout(() => {
+      heart.remove();
+    }, 2000);
+  }
+
+  // Munculkan love-love setiap 300ms
+  setInterval(createHeart, 300);
+
+  // Buat banyak heart saat pertama kali load
+  window.onload = function() {
+    for (let i = 0; i < 20; i++) {
+      setTimeout(createHeart, i * 100);
+    }
+  };
+</script>
+
 </body>
 </html>
