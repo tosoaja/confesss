@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Contoh Tombol dengan CSS</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin-top: 100px;
+    }
+
+    .tombol-redirect {
+      background-color: #4CAF50;
+      color: white;
+      padding: 14px 28px;
+      font-size: 16px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .tombol-redirect:hover {
+      background-color: #45a049;
+    }
+  </style>
+</head>
+<body>
+  <h1>Halaman Utama</h1>
+  <button class="tombol-redirect" onclick="location.href='halaman-lain.html'">
+    Ke Halaman Lain
+  </button>
+</body>
+</html>
